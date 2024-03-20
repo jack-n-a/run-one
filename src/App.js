@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes from react-router-dom
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -13,11 +13,12 @@ const App = () => {
       <div>
         <Header />
         <main>
-          {/* Render each Route component individually */}
-          <Route exact path="/" component={Home} />
-          <Route exact path="/pets" component={PetsList} />
-          <Route path="/pets/:id" component={PetDetails} />
-          <Route path="/about" component={About} />
+          <Routes> {/* Wrap Route components with Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/pets" element={<PetsList />} />
+            <Route path="/pets/:id" element={<PetDetails />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </main>
         <Footer />
       </div>
